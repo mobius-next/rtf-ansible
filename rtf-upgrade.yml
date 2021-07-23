@@ -1,0 +1,73 @@
+---
+- hosts: installer[0]
+  vars:
+    date: "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+  tasks:
+  - name: Change RTF dir owner to Ansible User
+    become: true
+    file:
+        path: "{{install_dir}}"
+        state: directory
+        mode: '0755'
+        owner: '{{ansible_user}}'
+        group: '{{ansible_user}}'
+        recurse: 'yes'
+  - name: create backup dir
+    become: true
+    file:
+        path: "{{rtf_backup_dir}}"
+        state: directory
+        mode: '0755'
+        owner: '{{ansible_user}}'
+        group: '{{ansible_group}}'
+    register: backup_dir
+  - name: debug variable
+    debug:
+        var: backup_dir
+        verbosity: 2
+  - name: Backup Gravity
+    become: yes
+    command: "gravity backup {{rtf_backup_dir}}/backup-{{date}}.tar.gz"
+  - name: check Installer Package is present
+    stat:
+      path: "{{install_dir}}/installer-update.tar.gz"
+    register: installer
+  - name: download Update Package
+    become: yes
+    get_url:
+      url:  "{{rtf_installer}}"
+      dest: "{{install_dir}}/installer-update.tar.gz"
+    when: installer.stat.exists == false and rtf_download
+  - name: copy installer update file
+    copy:
+        src: "{{rtf_installer}}"
+        dest: "{{install_dir}}/installer-update.tar.gz"
+        mode: "0644"
+    when: installer.stat.exists == false and not rtf_download
+  - name: create install dir
+    file:
+        path: "{{install_dir}}/installer-update"
+        state: directory
+        mode: '0755'
+  - name: check already extract
+    find:
+        paths: "{{install_dir}}/installer-update"
+        patterns: "*.*"
+    register: filesFound
+  - name: create update directory
+    become: yes
+    file:
+        path: "{{ install_dir }}/installer-update"
+        state: directory
+  - name: extract installer
+    become: yes
+    unarchive:
+        src: "{{install_dir}}/installer-update.tar.gz"
+        dest: "{{install_dir}}/installer-update"
+        remote_src: yes
+    when: filesFound.matched == 0
+  - name: Running Upgrade
+    become: yes
+    shell: ./upgrade > upgrade-{{date}}.log 2>&1
+    args:
+        chdir: "{{install_dir}}/installer-update"

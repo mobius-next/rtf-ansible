@@ -1,0 +1,9 @@
+- name: Get some needed facts and prepare for playbook
+  hosts: all
+  become: false
+  tasks:
+  - name: set ssh port to wait for if reboot is required
+    set_fact:
+      ansible_port: 22
+    when:
+    - ansible_ssh_port is not defined

@@ -1,0 +1,7 @@
+- include: facts.yml
+
+- name: Update Systems
+  hosts: all
+  become: true
+  roles:
+    - { role: rhel, when: ansible_os_family == "RedHat" }

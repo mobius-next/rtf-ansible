@@ -1,0 +1,23 @@
+# environment: dev
+[asia_workers]
+172.31.0.110 ansible_user=managedhost
+172.31.1.39 ansible_user=managedhost
+
+
+[us_workers]
+172.31.0.100 ansible_user=managedhost
+172.31.1.099 ansible_user=managedhost
+
+# workers in all geos
+[workers:children]
+asia_workers
+us_workers
+
+
+[installer]
+13.229.102.61 internal_ip=172.31.0.141 docker_device=/dev/xvdb etcd_device=/dev/xvdc role=installer
+
+
+[all:vars]
+ansible_user=ansiblecontrol
+ansible_group=ansiblecontrol

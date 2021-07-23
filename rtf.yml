@@ -1,0 +1,4 @@
+---
+# file: rtf.yml
+- import_playbook: rtf-upgrade.yml
+- import_playbook: rtf-uninstall.yml

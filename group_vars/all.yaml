@@ -1,0 +1,13 @@
+rtf_download: yes
+
+#rtf_installer: "https://runtime-fabric.s3.amazonaws.com/installer/runtime-fabric-1.1.1613157109-f27c821.tar.gz"
+
+rtf_installer: "https://mobius-bucket-001.s3.ap-southeast-1.amazonaws.com/installer-update.tar.gz"
+
+install_dir: /opt/anypoint/runtimefabric
+
+rtf_backup_dir: "/var/lib/gravity/backup"
+
+packages:
+ - git
+ - wget

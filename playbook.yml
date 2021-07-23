@@ -1,0 +1,7 @@
+---
+- name: Initial Playbook
+  hosts: workers
+  become: yes
+  roles:
+     - ./roles/rhel
+
