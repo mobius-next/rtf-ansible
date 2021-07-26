@@ -1,6 +1,5 @@
 ---
 my_packages:
    - vim
-   - rsync
    - wget
-   - telnet
+   - git

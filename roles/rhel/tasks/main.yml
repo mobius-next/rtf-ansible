@@ -1,11 +1,4 @@
-- name: install yum-utils needed to check if reboot is required
-  yum:
-    name: yum-utils
-    state: latest
-  when: ansible_os_family == "RedHat"
-
-
-- name: yum update
+- name: update os
   yum:
     name: '*'
     state: latest
@@ -14,17 +7,9 @@
   notify:
   - yum log to file
 
-- name: Install our packages
+- name: install packages
   package:
     name: "{{ item }}"
     state: present
   with_items:
     - "{{ my_packages }}"
-
-- name: Remove packages
-  package:
-    name: "{{ item }}"
-    state: absent
-  with_items:
-    - emacs
-    - nano
