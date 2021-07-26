@@ -35,6 +35,7 @@ To address this objective, the POC will implement:
 
 ## Architecture
 
+<img src="/images/architecture.png" alt="Ansible Controller and RTF Architecture" height="800" width="600" />
 
 
 ## Setup
