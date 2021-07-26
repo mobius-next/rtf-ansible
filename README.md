@@ -25,10 +25,10 @@
 This POC aims to implement Automation for Runtime Fabric.
 To address this objective, the POC will implement:
 
-* [Create RTF Appliance]
-* [Setup Ansible in RTF Appliance]
-* [Updating RTF using Ansible]
-* [Updating OS using Ansible]
+* Create RTF Appliance
+* Setup Ansible in RTF Appliance
+* Updating RTF using Ansible
+* Updating OS using Ansible
 
 ## Built With
 * [Ansible](https://www.ansible.com/)
@@ -138,5 +138,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Mobius NEXT - contact@mobiusnext.com
 
-Project Link: [https://github.com/mobius-next/rtf-ansible)
+Project Link: (https://github.com/mobius-next/rtf-ansible)
 
