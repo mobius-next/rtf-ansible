@@ -1,5 +1,5 @@
 # environment: production
 [workers]
-172.31.0.110 ansible_user=managedhost
-172.31.1.39  ansible_user=managedhost
+x.x.x.x ansible_user=managedhost
+x.x.x.x  ansible_user=managedhost
 

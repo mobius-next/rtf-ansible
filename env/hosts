@@ -1,8 +1,8 @@
 [workers]
-172.31.0.110 ansible_user=managedhost
-172.31.1.39 ansible_user=managedhost
+x.x.x.x ansible_user=managedhost
+x.x.x.x ansible_user=managedhost
 
 
 
 [installer]
-13.229.102.61  internal_ip=172.31.0.141 docker_device=/dev/xvdb etcd_device=/dev/xvdc role=ansiblecontrol
+x.x.x.x  internal_ip=x.x.x.x docker_device=/dev/xvdb etcd_device=/dev/xvdc role=ansiblecontrol
