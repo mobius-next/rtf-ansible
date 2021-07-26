@@ -53,7 +53,7 @@ To address this objective, the POC will implement:
 9. Check the created infra in the cloud console
 10. Go to /opt/anypoint/runtimefabric and execute sudo ./init.sh. This will execute 17 Steps for Runtime Fabric installation.
 
-* [API Plaform Automation - Setup Ansible in RTF Appliance]
+* API Plaform Automation - Setup Ansible in RTF Appliance
 
 
 | Step | Command |
@@ -89,7 +89,7 @@ To address this objective, the POC will implement:
 | 20. update the IP addresses in the env inventory files |  |
 | 21. ping the 2 managedhost vm | ansible all -m ping |
 
-* [API Platform Automation - Updating RTF using Ansible]
+* API Platform Automation - Updating RTF using Ansible
 
 | Step | Command |
 | ------ | ------ |
@@ -97,7 +97,7 @@ To address this objective, the POC will implement:
 | 2. add flags for dry run, and verbose logs | --check -v |
 
 
-* [API Platform Automation - Updating OS using Ansible]
+* API Platform Automation - Updating OS using Ansible
 
 | Step | Command |
 | ------ | ------ |
